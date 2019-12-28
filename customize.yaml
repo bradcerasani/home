@@ -1,0 +1,23 @@
+# Multisensor
+sensor.aeon_labs_zw100_multisensor_6_temperature:
+  friendly_name: Temperature
+sensor.aeon_labs_zw100_multisensor_6_relative_humidity:
+  friendly_name: Humidity
+  icon: mdi:water
+sensor.aeon_labs_zw100_multisensor_6_luminance:
+  friendly_name: Luminance
+  icon: mdi:weather-sunny
+sensor.aeon_labs_zw100_multisensor_6_ultraviolet:
+  friendly_name: Ultraviolet
+  icon: mdi:sunglasses
+sensor.aeon_labs_zw100_multisensor_6_sensor:
+  friendly_name: Sensor
+sensor.aeon_labs_zw100_multisensor_6_alarm_level:
+  hidden: true
+sensor.aeon_labs_zw100_multisensor_6_alarm_type:
+  hidden: true
+sensor.aeon_labs_zw100_multisensor_6_sourcenodeid: 
+  hidden: true
+sensor.aeon_labs_zw100_multisensor_6_burglar:
+  friendly_name: Motion sensor
+  icon: mdi:run

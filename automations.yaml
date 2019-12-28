@@ -1,0 +1,57 @@
+- alias: Party Time
+  trigger:
+    platform: state
+    entity_id: binary_sensor.centralite_3321_s_0bbe2318_1_1280
+    to: 'off'
+  action:
+    - service: script.party_time
+
+- alias: Cleaning Time
+  trigger:
+    platform: state
+    entity_id: binary_sensor.centralite_3321_s_0bb56971_1_1280
+    to: 'off'
+  action:
+    - service: script.cleaning_time
+    
+- alias: Entertain
+  trigger:
+    platform: state
+    entity_id: binary_sensor.centralite_3321_s_0bb53458_1_1280
+    to: 'off'
+  action:
+    - service: script.entertain
+    
+- alias: Powder Room Lights
+  trigger:
+    platform: state
+    entity_id: binary_sensor.centralite_3321_s_0bbd8689_1_1280
+    to: 'on'
+  action:
+    - service: script.powder_room_lights
+
+- alias: Evening lighting    
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "-00:30:00"
+  action:
+    - service: light.turn_on
+      data: 
+        entity_id: light.exterior
+    - service: switch.turn_on
+      data:
+        entity_id: switch.jasco_products_12720_outdoor_smart_switch_switch_2
+    
+- alias: Morning lighting    
+  trigger:
+    platform: sun
+    event: sunrise
+    offset: "-00:30:00"
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.exterior
+    - service: switch.turn_off
+      data:
+        entity_id: switch.jasco_products_12720_outdoor_smart_switch_switch_2

@@ -1,13 +1,10 @@
 party_time:
   sequence:
-    - service: hue.hue_activate_scene
+    - service: light.turn_on
+      entity_id: group.all_lights
       data_template:
-        group_name: "Living"
-        scene_name: "Vegas"
-    - service: hue.hue_activate_scene
-      data_template:
-        group_name: "Kitchen"
-        scene_name: "Seven"
+        effect: colorloop
+        brightness_pct: 100
     - service: media_player.select_source
       data_template:
         entity_id: media_player.living_room
@@ -25,31 +22,14 @@ party_time:
         entity_id: media_player.dining_room
         volume_level: 0.4
         
-    # - service: light.turn_on
-    #   entity_id: light.kitchen
-    #   data_template:
-    #     hs_color:
-    #       - "{{ range(360)|random }}"
-    #       - "{{ range(80,101)|random }}"
-    #     brightness_pct: 100
-    # - delay: '00:00:02'
-    # - service: light.turn_on
-    #   entity_id: light.kitchen
-    #   data_template:
-    #     effect: colorloop
-    #     brightness: 255
-    #     transition: 2
-        
 cleaning_time:
   sequence:
-    - service: hue.hue_activate_scene
+    - service: light.turn_on
+      entity_id: group.all_lights
       data_template:
-        group_name: "Living"
-        scene_name: "Concentrate"
-    - service: hue.hue_activate_scene
-      data_template:
-        group_name: "Kitchen"
-        scene_name: "Concentrate"
+        effect: none
+        kelvin: 5000
+        brightness_pct: 100
     - service: media_player.select_source
       data_template:
         entity_id: media_player.living_room
@@ -69,14 +49,12 @@ cleaning_time:
         
 entertain:
   sequence:
-    - service: hue.hue_activate_scene
+    - service: light.turn_on
+      entity_id: group.all_lights
       data_template:
-        group_name: "Living"
-        scene_name: "Newb"
-    - service: hue.hue_activate_scene
-      data_template:
-        group_name: "Kitchen"
-        scene_name: "Relax"
+        effect: none
+        kelvin: 2200
+        brightness_pct: 80
     - service: media_player.select_source
       data_template:
         entity_id: media_player.living_room
